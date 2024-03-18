@@ -1,0 +1,319 @@
+/*resources/scss/app.scss*/
+@import "bootstrap/scss/bootstrap";
+
+// brand colors
+$brand_primary: #0182F9;
+$brand_secondary: #1C1C1C;
+$footer_color: #303030;
+// col dimension
+$single-col: calc(100% / 12);
+
+// Generic style ****************************************************************
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+body {
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.col-1 {
+    width: $single-col;
+}
+
+.col-2 {
+    width: calc($single-col * 2);
+}
+
+.col-6 {
+    width: calc($single-col * 6);
+}
+
+.col-10 {
+    width: calc($single-col * 10);
+}
+
+.m-center {
+    margin: 0 auto;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.active {
+    color: $brand_primary;
+}
+
+.active-underline {
+    border-bottom: 5px solid $brand_primary;
+    padding-top: 0.3rem;
+}
+
+// Header style ****************************************************************
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    margin: 0 auto;
+
+    figure {
+        height: 60px;
+    }
+
+    img {
+        width: 60px;
+    }
+
+    ul {
+        gap: 20px;
+    }
+
+    a {
+        text-transform: uppercase;
+        color: $brand_secondary;
+        display: block;
+    }
+
+    li:has(> a:hover) {
+        border-bottom: 5px solid $brand_primary;
+        padding-top: 0.3rem;
+    }
+}
+
+//Footer stytle ****************************************************************
+
+footer {
+    background-image: url(../img/footer-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding-block: 40px;
+    overflow: hidden;
+
+
+    .container {
+        justify-content: start;
+        gap: 20px;
+    }
+
+    h4 {
+        color: white;
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        margin-bottom: 10px;
+
+        a {
+            color: gray;
+            font-size: 12px;
+        }
+    }
+
+    .floating-logo {
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        right: 10%;
+    }
+}
+
+// Under Footer
+
+#underFooter {
+    background-color: $footer_color;
+    padding-block: 40px;
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            border: 2px solid $brand_primary;
+            background-color: rgba(0, 0, 0, 0);
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .socials {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+
+            h3 {
+                color: $brand_primary;
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 0;
+            }
+
+            ul {
+                display: flex;
+                gap: 20px;
+                margin-bottom: 0;
+
+                li {
+                    list-style: none;
+                }
+            }
+        }
+    }
+}
+
+// Comics page style ****************************************************************
+
+main {
+    background-color: $brand_secondary;
+    color: white;
+
+    .banner {
+        background-image: url(../img/jumbotron.jpg);
+        background-position: top;
+        background-size: cover;
+        position: relative;
+        height: 350px;
+
+        .title {
+            position: absolute;
+            padding: 15px;
+            background-color: $brand_primary;
+            bottom: calc((-1rem/2) - 8px);
+            left: calc($single-col - 10px);
+            font-weight: 700;
+            font-size: 20px;
+        }
+    }
+}
+
+#slider {
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-block: 50px 20px;
+    justify-content: space-evenly;
+}
+
+.slide {
+    flex-basis: calc((100% / 6) - 25px);
+    margin-bottom: 30px;
+
+    figure {
+        width: 100%;
+        margin-bottom: 20px;
+        overflow: hidden;
+        aspect-ratio: 1;
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1;
+        }
+
+        &:hover img {
+            scale: 1.3;
+            transition: scale 0.5s ease-in-out;
+        }
+    }
+}
+
+button {
+    border: none;
+    background-color: $brand_primary;
+    padding: 10px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#bannerLink {
+    background-color: $brand_primary;
+    height: 150px;
+
+    nav {
+        ul {
+            margin-block: 50px;
+            justify-content: space-around;
+
+            li {
+                figure {
+                    width: 50px;
+                }
+
+                img {
+                    object-fit: cover;
+                }
+
+                a {
+                    color: white;
+                    margin-left: 25px;
+                }
+            }
+
+            li:nth-child(1),
+            li:nth-child(4) figure {
+                height: 50px;
+            }
+
+            li:nth-child(1),
+            li:nth-child(4) figure img {
+                width: auto;
+                height: 100%;
+            }
+        }
+    }
+}
