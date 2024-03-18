@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'index')
+@section('title', 'Show')
 
 @section('content')
     <main>
         <div class="banner w-100 ">
-            <div class="uppercase title">index comics</div>
+            <div class="uppercase title">single comic</div>
         </div>
-        <table class="table table-primary my-5">
+        {{-- <table class="table table-primary my-5">
             @foreach ($currentSeries as $comic)
                         <tr class="slide">
                             
@@ -23,6 +23,6 @@
                             <td class="uppercase">{{ $comic['type'] }}</td>                            
                         </tr>
             @endforeach
-        </table>
+        </table> --}}
     </main>
 @endsection

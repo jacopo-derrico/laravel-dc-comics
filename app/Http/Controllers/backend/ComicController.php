@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Comic;
 
 class ComicController extends Controller
 {
@@ -13,19 +14,19 @@ class ComicController extends Controller
     public function index()
     {
         // HEADER
-    $menus = config('menus');
-    //FOOTER
-    $comicsMenus = config('comicsMenus');
-    $shopMenus = config('shopMenus');
-    $dcMenu = config('dcmenu');
-    $sitesMenu = config('sitesMenus');
-    $socialIcons = config('socialIcons');
-    //BANNER
-    $bannerLink = config('bannerLink');
+        $menus = config('menus');
+        //FOOTER
+        $comicsMenus = config('comicsMenus');
+        $shopMenus = config('shopMenus');
+        $dcMenu = config('dcmenu');
+        $sitesMenu = config('sitesMenus');
+        $socialIcons = config('socialIcons');
+        //BANNER
+        $bannerLink = config('bannerLink');
 
 
-    $currentSeries = config('comics');
-    return view('pages.comicView.index', compact('menus', 'comicsMenus', 'shopMenus', 'dcMenu', 'sitesMenu', 'socialIcons', 'bannerLink', 'currentSeries'));
+        $currentSeries = config('comics');
+        return view('pages.comicView.index', compact('menus', 'comicsMenus', 'shopMenus', 'dcMenu', 'sitesMenu', 'socialIcons', 'bannerLink', 'currentSeries'));
         return view('pages.comicView.index', compact('comics'));
     }
 
@@ -50,7 +51,7 @@ class ComicController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $comic = Comic::find($id);
     }
 
     /**
