@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\backend\ComicController;
+use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\Home\WelcomeController as WelcomeController;
 
 /*
@@ -15,22 +16,6 @@ use App\Http\Controllers\Home\WelcomeController as WelcomeController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [PageController::class, 'index'])->name('homePage');
 
-    // HEADER
-    $menus = config('menus');
-    //FOOTER
-    $comicsMenus = config('comicsMenus');
-    $shopMenus = config('shopMenus');
-    $dcMenu = config('dcmenu');
-    $sitesMenu = config('sitesMenus');
-    $socialIcons = config('socialIcons');
-    //BANNER
-    $bannerLink = config('bannerLink');
-
-
-    $currentSeries = config('comics');
-    return view('pages.comics', compact('menus', 'comicsMenus', 'shopMenus', 'dcMenu', 'sitesMenu', 'socialIcons', 'bannerLink', 'currentSeries'));
-})->name('homePage');
-
-
+Route::resource('comics', ComicController::class);
