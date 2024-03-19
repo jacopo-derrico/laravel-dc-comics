@@ -33,6 +33,8 @@
                                         Delete
                                     </button>
                                 </form>
+
+                                <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-primary ">Edit</a>
                             </td>
                         </tr>
             @endforeach
