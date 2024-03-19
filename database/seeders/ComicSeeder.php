@@ -14,12 +14,10 @@ class ComicSeeder extends Seeder
     public function run(): void
     {
         $comics = config('comics');
-        $id = 1;
+        
         foreach ($comics as $comic) {
             $newComic= new Comic();
 
-            $newComic->id = $id;
-            $id++;
             $newComic->title=$comic["title"];
             $newComic->description=$comic["description"];
             $newComic->thumb=$comic["thumb"];
