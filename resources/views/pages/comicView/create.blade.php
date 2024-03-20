@@ -3,7 +3,20 @@
 @section('title', 'Create')
 
 @section('content')
-    <main>
+    <main class="py-4">
+
+        {{-- Error popup --}}
+        @if ($errors->any())
+            <div class="alert alert-danger col-10 mx-auto">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>    
+        @endif
+
+
         <form action="{{ route('comics.store') }}" method="POST" class="col-10 mx-auto py-5">
             @csrf
 
